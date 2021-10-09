@@ -5,8 +5,6 @@ const INITIAL_STATE = {
   name: "",
   number: "",
 };
-
-
 class Form extends Component {
   state = { ...INITIAL_STATE};
 
@@ -40,6 +38,7 @@ class Form extends Component {
   reset = () => {
     this.setState({ ...INITIAL_STATE});
   };
+
   render() {
     const { name, number} = this.state
     return (
@@ -68,7 +67,6 @@ class Form extends Component {
             required
           />
         </label>
-
         <button type="submit">Add contact</button>
       </form>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ContactList = ({ contacts, handleDelete}) => (
-   <ul>
+  <ul>
     {contacts.map(({ id, name, number }) => (
       <li key={id}>
         {name}: {number}
