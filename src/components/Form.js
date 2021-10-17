@@ -1,27 +1,26 @@
-import React, { Component } from 'react'
-import { v4 as uuidv4 } from "uuid";
+import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const INITIAL_STATE = {
-  name: "",
-  number: "",
+  name: '',
+  number: '',
 };
 class Form extends Component {
-  state = { ...INITIAL_STATE};
+  state = { ...INITIAL_STATE };
 
   handleInputChange = (e) => {
     const { name, value } = e.currentTarget;
-    this.setState({ [name]: value, });
+    this.setState({ [name]: value });
   };
-  
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, number } = this.state
-    const { onAdd } = this.props
-    const isValidateForm = this.validateForm()
-    if (!isValidateForm) return
+    const { name, number } = this.state;
+    const { onAdd } = this.props;
+    const isValidateForm = this.validateForm();
+    if (!isValidateForm) return;
     onAdd({ id: uuidv4(), name, number });
-    
+
     this.reset();
   };
 
@@ -29,18 +28,18 @@ class Form extends Component {
     const { name, number } = this.state;
     const { onCheckUnique } = this.props;
     if (!name || !number) {
-      alert('Some field is empty')
-      return false
+      alert('Some field is empty');
+      return false;
     }
     return onCheckUnique(name);
-  }
+  };
 
   reset = () => {
-    this.setState({ ...INITIAL_STATE});
+    this.setState({ ...INITIAL_STATE });
   };
 
   render() {
-    const { name, number} = this.state
+    const { name, number } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
@@ -73,4 +72,4 @@ class Form extends Component {
   }
 }
 
-export default Form
+export default Form;
